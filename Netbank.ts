@@ -3,7 +3,7 @@ type User = {
     email: string
 }
 
-enum AppState {
+enum State {
     LOADING = 'LOADING',
     ERROR = 'ERROR',
     DONE= 'ERROR'
@@ -25,12 +25,12 @@ enum PageType {
 
 type AccountPage = {
     type: PageType.ACCOUNT;
-    state: AppState;
+    state: State;
 }
 
 type SupportPage = {
     type: PageType.SUPPORT;
-    state: AppState;
+    state: State;
 }
 
 type Page = AccountPage | SupportPage;
@@ -81,7 +81,7 @@ export type RegularAccount = BaseAccount & {
 export type Accounts = PocketAccount | RegularAccount;
 
 
-interface AppState {
+type NetBankState = {
     user?: User;
     page: Page;
     accounts?: Accounts;
